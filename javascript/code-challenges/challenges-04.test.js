@@ -212,7 +212,15 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  // Solution code here...
+  // return arr.sort((sortedMeetings) => {
+  //   return sortedMeetings.dayOfWeek - sortedMeetings.dayOfWeek;
+
+  return arr.sort((a, b, c) => {
+    a = arr.indexOf(a);
+    b = arr.indexOf(b);
+    c = arr.indexOf(c);
+    return a < c ? 0 : 1;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
