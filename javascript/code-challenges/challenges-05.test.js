@@ -104,7 +104,7 @@ let starWarsData = [
     mass: "136",
     hair_color: "none",
     skin_color: "white",
-    eye_color: "yellow",git
+    eye_color: "yellow",
     birth_year: "41.9BBY",
     gender: "male",
   },
@@ -332,7 +332,7 @@ describe("Testing challenge 3", () => {
   });
 });
 
-describe("Testing challenge 4", () => {
+xdescribe("Testing challenge 4", () => {
   test("It should return the length of the array", () => {
     expect(countNumberOfElements([1, 2, 3, 4, 5])).toStrictEqual(5);
   });
