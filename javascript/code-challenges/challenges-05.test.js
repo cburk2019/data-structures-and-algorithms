@@ -12,7 +12,27 @@ Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = (people) => {
-  // Solution code here...
+  // let newPeople = [];
+  // people.map() => {
+  //   return people.firstName + people.lastName;
+  // });
+  // return newPeople;
+
+  // return people.map((newPeople) => {
+  //   let newPeople = []:
+  //   people.firstName +people.lastName);
+  //   return newPeople
+
+  const newArray = people.map(
+    (newPerson) => newPerson.firstName + " " + newPerson.lastName
+  );
+  return newArray;
+
+  // *ALSO WORKS*
+  // const toLastNames = (people) => {
+  // return people.map((person) => {
+  //   return `${person.firstName} ${person.lastName}`;
+  // });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -23,13 +43,17 @@ Write a function named addValues that, given an array of numbers as input, uses 
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr) => {
-  // Solution code here...
-
-  const addValues = arr.reduce((acc, val) => {
-    return acc + val;
+  const addValues = arr.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
   }, 0);
   return addValues;
+
+  // * ALSO *
+  // return arr.reduce((accumulator, currentValue) => {
+  //   return accumulator + currentValue;
+  // }, 0);
 };
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -43,9 +67,8 @@ Write a function named addPurchases that, given an array of objects as input, us
 ------------------------------------------------------------------------------------------------ */
 
 const addPurchases = (arr) => {
-  // Solution code here...
-  return arr.reduce((acc, val) => {
-    return acc + val.purchasePrice;
+  return arr.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.purchasePrice;
   }, 0);
 };
 
@@ -58,7 +81,23 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  // Solution code here...
+  // return arr.reduce((accumulator, currentValue) => {
+  //   return accumulator + currentValue;
+  // });
+
+  // const totalElems = arr.reduce(
+  //   (accumulator, currentValue) => accumulator + currentValue.length,
+  //   0
+  // );
+  // return totalElems;
+
+  // return arr.reduce((accumulator, currentValue) => {
+  //   return accumulator + currentValue;
+  // }, 0);
+
+  return arr.reduce((accumulator) => {
+    return accumulator + 1;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,7 +160,13 @@ let starWarsData = [
 ];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  // return arr.reduce((accumulator, currentValue) => {
+  //   return accumulator + currentValue.name;
+  // }, []);
+
+  return arr.reduce((accumulator, currentValue) => {
+    return accumulator.concat(currentValue.name);
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -133,12 +178,11 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
-
   // str.reduceRight((acc, val) => {
   //   const newValue =
   //   return str.concat()
   // });
+
   // ' ' returns a word
   // '' returns each character
   const splitStr = str.split("");
@@ -198,7 +242,11 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((accumulator, currentValue) => {
+    return currentValue.children
+      ? accumulator + currentValue.children.length
+      : accumulator + 0;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -301,7 +349,7 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest challenges-09.test.js
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe("Testing challenge 1", () => {
+describe("Testing challenge 1", () => {
   test("It should convert object to full name string", () => {
     const people = [
       { firstName: "Jane", lastName: "Doe" },
@@ -332,13 +380,13 @@ describe("Testing challenge 3", () => {
   });
 });
 
-xdescribe("Testing challenge 4", () => {
+describe("Testing challenge 4", () => {
   test("It should return the length of the array", () => {
     expect(countNumberOfElements([1, 2, 3, 4, 5])).toStrictEqual(5);
   });
 });
 
-xdescribe("Testing challenge 5", () => {
+describe("Testing challenge 5", () => {
   test("It should return an array continaing the names of the characters", () => {
     expect(returnNames(starWarsData)).toStrictEqual([
       "Luke Skywalker",
@@ -357,7 +405,7 @@ describe("Testing challenge 6", () => {
   });
 });
 
-xdescribe("Testing challenge 7", () => {
+describe("Testing challenge 7", () => {
   test("It should return the total number of children", () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
