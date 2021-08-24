@@ -349,7 +349,7 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest challenges-09.test.js
 ------------------------------------------------------------------------------------------------ */
 
-describe("Testing challenge 1", () => {
+xdescribe("Testing challenge 1", () => {
   test("It should convert object to full name string", () => {
     const people = [
       { firstName: "Jane", lastName: "Doe" },
