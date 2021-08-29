@@ -239,7 +239,7 @@ Run your tests from the console: jest challenge-12.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-describe("Testing challenge 1", () => {
+xdescribe("Testing challenge 1", () => {
   test("it should return the last 10 characters of a string as an array", () => {
     expect(returnTen("hello world")).toStrictEqual([
       "e",
