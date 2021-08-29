@@ -25,19 +25,7 @@ let starWarsPeople = [
 ];
 
 const sortStarWarsCharacters = (starWarsArr) => {
-  starWarsArr.sort(function (a, b) {
-    var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-    var nameB = b.name.toUpperCase(); // ignore upper and lowercase
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-
-    // names must be equal
-    return 0;
-  });
+  return starWarsArr.sort((a, b) => b.height - a.height);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,7 +35,9 @@ Write a function named removeThree that takes an index and an array. The functio
 ------------------------------------------------------------------------------------------------ */
 
 const removeThree = (idx, arr) => {
-  return arr.splice(idx, 3);
+  // return arr.splice(idx, 3);
+  arr.splice(idx, 3);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,16 +63,16 @@ For example, if the input is 'Welcome', the output will be:
 ['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', ''].
 ------------------------------------------------------------------------------------------------ */
 
-// const howMuchPencil = (str) => {
-//   let result = [];
-//   // Solution code here...
-//   for (let i = 0; i < str.length; i --) {
-//         let sliceIt = str.slice(i);
-//         result.push(sliceIt);
-//     }
-//   }
-//   return result;
-// };
+const howMuchPencil = (str) => {
+  let result = [];
+  // Solution code here...
+  for (let i = 0; i < str.length; i++) {
+    let sliceIt = str.split("").slice(i, str.length).join("");
+    result.push(sliceIt);
+  }
+  result.push("");
+  return result;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -92,9 +82,7 @@ Write a function name wordsToCharList that, given a string as input, returns a n
 For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
-const wordsToCharList = (arr) => {
-  // Solution code here...
-};
+const wordsToCharList = (arr) => arr.split("");
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -136,11 +124,10 @@ const gruffaloCrumble = {
   ],
 };
 
-const listFoods = (recipe) => {
-  let result = [];
-  // Solution code here...
-  return result;
-};
+const listFoods = (recipe) =>
+  recipe.ingredients.map((eachIngredient) =>
+    eachIngredient.split(" ").slice(2).join(" ")
+  );
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -257,7 +244,7 @@ Run your tests from the console: jest challenges-05.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe("Testing challenge 1", () => {
+describe("Testing challenge 1", () => {
   test("It should sort the star wars characters by height from tallest to shortest", () => {
     expect(sortStarWarsCharacters(starWarsPeople)[0]["name"]).toStrictEqual(
       "Luke Skywalker"
@@ -268,7 +255,7 @@ xdescribe("Testing challenge 1", () => {
   });
 });
 
-xdescribe("Testing challenge 2", () => {
+describe("Testing challenge 2", () => {
   test("It should return an array with three items removed", () => {
     expect(removeThree(2, [1, 2, 3, 4, 5, 6, 7, 8])).toStrictEqual([
       1, 2, 6, 7, 8,
@@ -284,7 +271,7 @@ describe("Testing challenge 3", () => {
   });
 });
 
-xdescribe("Testing challenge 4", () => {
+describe("Testing challenge 4", () => {
   test("It should return a list of shortening words", () => {
     expect(howMuchPencil("Welcome")).toStrictEqual([
       "Welcome",
@@ -302,7 +289,7 @@ xdescribe("Testing challenge 4", () => {
   });
 });
 
-xdescribe("Testing challenge 5", () => {
+describe("Testing challenge 5", () => {
   test("It should return an array of individual letters", () => {
     expect(wordsToCharList("Gregor")).toStrictEqual([
       "G",
@@ -325,7 +312,7 @@ xdescribe("Testing challenge 5", () => {
   });
 });
 
-xdescribe("Testing challenge 6", () => {
+describe("Testing challenge 6", () => {
   test("It should return a list of foods", () => {
     expect(listFoods(gruffaloCrumble)).toStrictEqual([
       "Gruffalo",
