@@ -55,8 +55,23 @@ let characters = [
 ];
 
 const sortByChildren = (charArray) => {
+  return charArray.sort(
+    (leastChildren, mostChildren) =>
+      leastChildren.children.length - mostChildren.children.length
+  );
+
+  // charArray.sort((a, b) => a.children.length - b.children.length);
+
   // let newCharArray = (a, b);
   // charArray.sort(newCharArray) => return a - b}
+
+  // charArray.sort((a, b) => {
+  //   if (a.children.length === b.children.length) {
+  //     return;
+  //   } else {
+  //     return (sortedArray = a.children < b.children);
+  //   }
+  // });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,7 +82,10 @@ Write a function named containsW that takes in a string. This function should us
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => /w/g.test(str);
-// const regex = /w/g];
+
+// return /w/.test(str);
+
+// const regex = /w/g;
 // const result = regex.test(str);
 // return result;
 // };
@@ -85,6 +103,9 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => /[0-9]/.test(input);
+// {
+//   return /[0-9]/.test(input);
+// }
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -94,7 +115,6 @@ Write a function named containsWorld that takes in a string or number of any len
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => /(world)/.test(input);
-// const containsWorld = (input) => /world/.test(input);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -104,7 +124,13 @@ Write a function named isCapitalized that takes in a string. This function shoul
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
-const isCapitalized = (str) => /[A-Z]/.test(str);
+const isCapitalized = (str) => str.match(/[A-Z]\w*/g) || [];
+// str.match(/(\b[A-Z].*?\b)/g) || [];
+
+// {
+//   let regex = /(\b[A-Z].*?\b)/g;
+//   return str.match(regex) || [];
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -112,9 +138,10 @@ CHALLENGE 6
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 
-const citiesAtoJ = (arr) => {
-  // Solution code here...
-};
+const citiesAtoJ = (arr) => arr.filter((item) => item.match(/^[A-J].*?\b/g));
+// arr.includes(/^[A-J]/g);
+
+// arr.includes(/\S^[A-J]/g);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -190,7 +217,7 @@ Run your tests from the console: jest challenges-04.solution.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe("Testing challenge 1", () => {
+describe("Testing challenge 1", () => {
   test("It should sort the characters by number of children", () => {
     expect(sortByChildren(characters)[0].name).toStrictEqual("Euron");
     expect(sortByChildren(characters)[0].children.length).toStrictEqual(0);
@@ -235,7 +262,7 @@ describe("Testing challenge 4", () => {
   });
 });
 
-xdescribe("Testing challenge 5", () => {
+describe("Testing challenge 5", () => {
   test("It should only return words that begin with a capital letter", () => {
     const capitalResult = isCapitalized(
       "We only want to Return the Words that begin With a capital Letter"
@@ -267,7 +294,7 @@ xdescribe("Testing challenge 5", () => {
   });
 });
 
-xdescribe("Testing challenge 6", () => {
+describe("Testing challenge 6", () => {
   let cities = [
     "Cleveland",
     "San Diego",
