@@ -8,7 +8,7 @@ Write a function named returnTen, takes in a string and uses split and splice to
 ------------------------------------------------------------------------------------------------ */
 
 function returnTen(str) {
-  // Solution code here...
+  return str.split("").splice(-10);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,8 +26,25 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  // Solution code here...
+  // const matrixSlice = matrix.slice(0, 1);
+  // return matrixSlice.(function (subArray) {
+  //   return Math.max.apply(null, subArray);
+  // }, 0);
 };
+
+// return matrix.map(function (subArray) {
+//   return subArray.reduce(function (
+//     previousLargestNumber,
+//     currentLargestNumber
+//   ) {
+//     return currentLargestNumber > previousLargestNumber
+//       ? currentLargestNumber
+//       : previousLargestNumber;
+//   },
+//   0);
+// });
+
+// Math.max(parseInt(matrix));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -239,7 +256,7 @@ Run your tests from the console: jest challenge-12.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe("Testing challenge 1", () => {
+describe("Testing challenge 1", () => {
   test("it should return the last 10 characters of a string as an array", () => {
     expect(returnTen("hello world")).toStrictEqual([
       "e",
