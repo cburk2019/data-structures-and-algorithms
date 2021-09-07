@@ -19,15 +19,22 @@ Becomes:
 ------------------------------------------------------------------------------------------------ */
 
 function transformToLis(obj) {
-  const liArr = [];
-  Object.entries(obj).forEach((arr) => {
-    if (arr[0] === "name") {
-      liArr.push(`<li>name: ${arr[1]}</li>`);
-    } else {
-      liArr.push(`<li>age: ${arr[1]}</li>`);
-    }
-  });
+  let arr = [];
+  for (let property in obj) {
+    arr.push(`${property}: ${obj[property]}`);
+  }
+  let liArr = arr.map((x) => `<li>${x}</li>`);
   return liArr;
+
+  // const liArr = [];
+  // Object.entries(obj).forEach((arr) => {
+  //   if (arr[0] === "name") {
+  //     liArr.push(`<li>name: ${arr[1]}</li>`);
+  //   } else {
+  //     liArr.push(`<li>age: ${arr[1]}</li>`);
+  //   }
+  // });
+  // return liArr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -41,7 +48,13 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  // Solution code here...
+  let count = 0;
+  input.flat().filter((num) => {
+    if (num === target) {
+      count++;
+    }
+  });
+  return count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,7 +68,16 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  return input.flat().reduce((acc, current) => {
+    return acc + current;
+  }, 0);
+
+  // let total = 0;
+  // for (let i = 0; i < input.length; i++) {
+  //   let arrSum = input[i].reduce((acc, current) => (acc = acc + current));
+  //   total = total + arrSum;
+  // }
+  // return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -71,7 +93,14 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  let newArr = [];
+  for (let i = 0; i < input.length; i++) {
+    let filteredArr = input[i].filter(
+      (x) => x % 5 === 0 && typeof x === "number"
+    );
+    newArr.push(filteredArr.map((x) => 2 ** x));
+  }
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -139,7 +168,25 @@ let starWarsData = [
 ];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  let nameArray = [];
+  for (let person of data) {
+    if (person.gender === "male" || person.gender === "female") {
+      nameArray.push(person.name);
+    }
+  }
+  return nameArray.join(" and ");
+
+  // const finalArr = [];
+  // data.forEach((obj, index, array) => {
+  //   if (obj.gender === "male" || obj.gender === "female") {
+  //     if (index === array.length - 1) {
+  //       finalArr.push(`${obj.name}`);
+  //     } else {
+  //       finalArr.push(`${obj.name} and `);
+  //     }
+  //   }
+  // });
+  // return finalArr.join("");
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -149,7 +196,18 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+  const shortest = data.reduce((acc, current) => {
+    return parseInt(acc.height) < parseInt(current.height) ? acc : current;
+  });
+  return shortest.name;
+
+  // let shortest = data.reduce((acc, start) => {
+  //   if (acc.height < start.height) {
+  //     acc = start;
+  //   }
+  //   return acc;
+  // });
+  // return shortest.name;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -175,7 +233,7 @@ describe("Testing challenge 1", () => {
   });
 });
 
-xdescribe("Testing challenge 2", () => {
+describe("Testing challenge 2", () => {
   test("It should return the number of times the input is in the nested arrays", () => {
     expect(
       count(5, [
@@ -207,7 +265,7 @@ xdescribe("Testing challenge 2", () => {
   });
 });
 
-xdescribe("Testing challenge 3", () => {
+describe("Testing challenge 3", () => {
   test("It should add all the numbers in the arrays", () => {
     const nums = [
       [1, 2, 3, 4, 5],
@@ -219,7 +277,7 @@ xdescribe("Testing challenge 3", () => {
   });
 });
 
-xdescribe("Testing challenge 4", () => {
+describe("Testing challenge 4", () => {
   test("It should return numbers divisible by five, then raise two to the power of the resulting numbers", () => {
     expect(
       divisibleByFiveTwoToThePower([
@@ -250,7 +308,7 @@ xdescribe("Testing challenge 4", () => {
   });
 });
 
-xdescribe("Testing challenge 5", () => {
+describe("Testing challenge 5", () => {
   test("It should return only characters that are male or female", () => {
     expect(findMaleAndFemale(starWarsData)).toStrictEqual(
       "Luke Skywalker and Darth Vader and Leia Organa"
@@ -265,7 +323,7 @@ xdescribe("Testing challenge 5", () => {
   });
 });
 
-xdescribe("Testing challenge 6", () => {
+describe("Testing challenge 6", () => {
   test("It should return the name of the shortest character", () => {
     expect(findShortest(starWarsData)).toStrictEqual("R2-D2");
   });
