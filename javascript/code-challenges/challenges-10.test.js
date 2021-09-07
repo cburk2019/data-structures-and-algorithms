@@ -26,11 +26,17 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  // const matrixSlice = matrix.slice(0, 1);
-  // return matrixSlice.(function (subArray) {
-  //   return Math.max.apply(null, subArray);
-  // }, 0);
+  let arrayHighest = [];
+  matrix.forEach((data) => {
+    arrayHighest.push(Math.max(...data));
+  });
+  return Math.max(...arrayHighest);
 };
+
+// const matrixSlice = matrix.slice(0, 1);
+// return matrixSlice.(function (subArray) {
+//   return Math.max.apply(null, subArray);
+// }, 0);
 
 // return matrix.map(function (subArray) {
 //   return subArray.reduce(function (
@@ -61,7 +67,13 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
+  let total = 0;
+  matrix.forEach((data) => {
+    total += data.reduce((acc, current) => {
+      return acc + current;
+    }, 0);
+  });
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -100,7 +112,21 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
+  const totalArray = [];
+  let increment = 0;
+
+  stores.forEach((data) => {
+    if (increment === 0) {
+      totalArray.push(...data);
+    } else {
+      data.forEach((num, index) => {
+        totalArray[index] += num;
+      });
+    }
+    increment++;
+  });
+
+  return totalArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,7 +140,13 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  const arr = [];
+  let increment = 0;
+  hours.forEach((time) => {
+    arr.push({ time: time, sales: `${data[increment]} cookies` });
+    increment++;
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -151,7 +183,15 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let value;
+  arr.forEach((obj) => {
+    return obj.items.forEach((itemObj) => {
+      if (itemObj.name === "Treats") {
+        value = itemObj.quantity;
+      }
+    });
+  });
+  return value;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -274,7 +314,7 @@ describe("Testing challenge 1", () => {
   });
 });
 
-xdescribe("Testing challenge 2", () => {
+describe("Testing challenge 2", () => {
   test("It should return the max value", () => {
     expect(
       findMax([
@@ -286,7 +326,7 @@ xdescribe("Testing challenge 2", () => {
   });
 });
 
-xdescribe("Testing challenge 3", () => {
+describe("Testing challenge 3", () => {
   test("It should return the total sum", () => {
     expect(
       totalSum([
@@ -299,7 +339,7 @@ xdescribe("Testing challenge 3", () => {
   });
 });
 
-xdescribe("Testing challenge 4", () => {
+describe("Testing challenge 4", () => {
   test("It should add the hourly totals array", () => {
     expect(grandTotal(cookieStores)).toStrictEqual([
       88, 153, 252, 286, 139, 161, 145, 232, 276, 207, 161, 169,
@@ -307,7 +347,7 @@ xdescribe("Testing challenge 4", () => {
   });
 });
 
-xdescribe("Testing challenge 5", () => {
+describe("Testing challenge 5", () => {
   test("It should create an object of data for each store", () => {
     expect(salesData(hoursOpen, grandTotal(cookieStores))).toStrictEqual([
       { sales: "88 cookies", time: "9 a.m." },
@@ -330,7 +370,7 @@ xdescribe("Testing challenge 5", () => {
   });
 });
 
-xdescribe("Testing challenge 6", () => {
+describe("Testing challenge 6", () => {
   test("It should return the number 24", () => {
     expect(howManyTreats(errands)).toStrictEqual(24);
   });
