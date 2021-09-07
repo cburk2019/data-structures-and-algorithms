@@ -23,7 +23,8 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 ------------------------------------------------------------------------------------------------ */
 
 const toTitleCase = (arr) =>
-  arr.filter((each) => each.charAt(0).toUpperCase() + each.substr(1));
+  arr.map((newStr) => newStr.charAt(0).toUpperCase() + newStr.slice(1));
+// arr.filter((each) => each.charAt(0).toUpperCase() + each.substr(1));
 // };
 
 /* ------------------------------------------------------------------------------------------------
@@ -100,10 +101,20 @@ let starWarsData = [
 ];
 
 let biggerThanLuke = (arr) => {
-  return arr
-    .map((character) => parseInt(character.mass) > 77)
-    .map((character) => character.name)
-    .join(" - ");
+  let lukemass = parseInt(
+    arr.filter((x) => x.name === "Luke Skywalker")[0].mass
+  );
+  let bigger = arr.filter((x) => parseInt(x.mass) > lukemass);
+  let biggerNames = bigger.reduce((acc, obj, idx) => {
+    acc.push(obj.name);
+    return acc;
+  }, []);
+  let finalString = biggerNames.join(" - ");
+  return finalString;
+
+  //     .map((character) => parseInt(character.mass) > 77)
+  //     .map((character) => character.name)
+  //     .join(" - ");
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,7 +132,15 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    if (a[property] > b[property]) {
+      return 1;
+    } else if (a[property] < b[property]) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,8 +155,7 @@ http://www.insecure.com returns false because the URL is not secure
 https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
-const isSecure = (url) => /^https:\/\/\w+/.test(url);
-// };
+const isSecure = (url) => /^https:\/\//.test(url);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -196,7 +214,7 @@ describe("Testing challenge 1", () => {
   });
 });
 
-xdescribe("Testing challenge 2", () => {
+describe("Testing challenge 2", () => {
   test("It should convert each word to title case", () => {
     const words = ["apple", "banana", "MacGyver"];
     expect(toTitleCase(words)).toStrictEqual(["Apple", "Banana", "MacGyver"]);
@@ -214,7 +232,7 @@ xdescribe("Testing challenge 3", () => {
   });
 });
 
-xdescribe("Testing challenge 4", () => {
+describe("Testing challenge 4", () => {
   test("It should sort items by a price", () => {
     expect(
       sortBy("price", [
