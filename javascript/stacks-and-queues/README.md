@@ -56,7 +56,8 @@ You have access to the Node class and all the properties on the Linked List clas
 
 ## Whiteboard Process
 
-![Stack and Queue](./img/stack-and-queue.pnng)\
+![Stack and Queue](./img/stack-and-queue.pnnnnng)\
+![stack-queue-animal-shelter](./img/SQanimalShelter.png)\
 
 ## Algorithm
 
