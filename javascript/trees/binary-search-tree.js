@@ -19,7 +19,9 @@ class BinarySearchTree extends BinaryTree {
       let current = this.root;
 
       while (current) {
-        if (current.value < value) {
+        if (current.value === value) {
+          throw `Sorry partner, no duplicates. A value already exists in the tree`;
+        } else if (current.value < value) {
           if (!current.right) {
             current.right = new Node(value);
             break;
@@ -38,7 +40,7 @@ class BinarySearchTree extends BinaryTree {
     }
   }
 
-  // Returns: a boolean that indicates whether or not the value is in the tree, at least one time
+  // Returns a boolean that indicates whether or not the value is in the tree, at least one time
   contains(value) {
     try {
       let current = this.root;

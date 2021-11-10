@@ -4,9 +4,10 @@ class BinaryTree {
   constructor() {
     this.root = null;
     this.arrayOfValues = [];
+    this.tempMax = 0;
   }
 
-  // -------------------------------- preOrder
+  // -------------------------------------------------- preOrder
   // root -> left -> right
 
   traversePreOrder(current) {
@@ -22,6 +23,7 @@ class BinaryTree {
       throw `Sorry partner, unable to pre-order the binary tree: ${error}`;
     }
   }
+  // returns an array of values, ordered (pre-order)
   doPreOrder() {
     try {
       // need to clear out the array
@@ -34,19 +36,7 @@ class BinaryTree {
     }
   }
 
-  // function PreOrder(current) {
-  //   console.log(current.value);
-
-  //   if (current.left) {
-  //     PreOrder(current.left);
-  //   };
-
-  //   if (current.right) {
-  //     PreOrder(current.right);
-  //   };
-  // };
-
-  // -------------------------------- inOrder
+  // -------------------------------------------------- inOrder
   // left -> root -> right
 
   traverseInOrder(current) {
@@ -62,6 +52,7 @@ class BinaryTree {
       throw `Sorry partner, unable to in-order the binary tree: ${error}`;
     }
   }
+  // returns an array of values, ordered (in-order)
   doInOrder() {
     try {
       // need to clear out the array
@@ -74,7 +65,8 @@ class BinaryTree {
     }
   }
 
-  // -------------------------------- postOrder
+  // ----------------------------------------------- postOrder
+  // left -> right -> root
 
   traversePostOrder(current) {
     try {
@@ -89,6 +81,7 @@ class BinaryTree {
       throw `Sorry partner, unable to post-order the binary tree: ${error}`;
     }
   }
+  // returns an array of values, ordered (post-order)
   doPostOrder() {
     try {
       // need to clear out the array
@@ -100,6 +93,38 @@ class BinaryTree {
       throw `Sorry partner, unable to return the array of values, post-order: ${error}`;
     }
   }
+
+  // finds the maximum value stored in the tree
+  traverseFindMax(current) {
+    try {
+      if (current.value > this.tempMax) {
+        this.tempMax = current.value;
+        // console.log(`this.tempMax = :`, this.tempMax);
+      }
+      if (current.left) {
+        this.traverseFindMax(current.left);
+      }
+      if (current.right) {
+        this.traverseFindMax(current.right);
+      }
+    } catch (error) {
+      throw `Sorry partner, unable to return the max value in the binary tree ${error}`;
+    }
+  }
+  // returns the max value in the binary tree
+  doFindMax() {
+    try {
+      if (!this.root) {
+        throw `Sorry partner, cannot search for the max value. The binary tree does not have a root`;
+      } // need to clear out tempMax
+      this.tempMax = 0;
+      this.traverseFindMax(this.root);
+      return this.tempMax;
+    } catch (error) {
+      throw `Sorry partner, unable to doFindMax value in the binary tree: ${error}`;
+    }
+  }
+
 }
 
 module.exports = BinaryTree;
