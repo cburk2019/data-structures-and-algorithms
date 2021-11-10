@@ -69,7 +69,7 @@ Create a binary search tree subclass with add and contains methods that add new 
 [Binary Tree](./binary-tree.js)  
 [Binary Search Tree](./binary-search-tree.js)
 
-## Tests
+## Test Suites
 
 [Binary Tree Tests](./__tests__/binary-tree.test.js)  
 [Binary Search Tree Tests](./__tests__/binary-search-tree.test.js)

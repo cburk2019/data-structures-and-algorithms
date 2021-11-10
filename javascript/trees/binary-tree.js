@@ -22,7 +22,6 @@ class BinaryTree {
       throw `Sorry partner, unable to pre-order the binary tree: ${error}`;
     }
   }
-
   doPreOrder() {
     try {
       // need to clear out the array
@@ -63,7 +62,6 @@ class BinaryTree {
       throw `Sorry partner, unable to in-order the binary tree: ${error}`;
     }
   }
-
   doInOrder() {
     try {
       // need to clear out the array
@@ -84,14 +82,13 @@ class BinaryTree {
         this.traversePostOrder(current.left);
       }
       if (current.right !== null) {
-        this.traverseInOrder(current.right);
+        this.traversePostOrder(current.right);
       }
       this.arrayOfValues.push(current.value);
     } catch (error) {
       throw `Sorry partner, unable to post-order the binary tree: ${error}`;
     }
   }
-
   doPostOrder() {
     try {
       // need to clear out the array
