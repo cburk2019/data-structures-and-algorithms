@@ -66,7 +66,7 @@ Create a binary search tree subclass with add and contains methods that add new 
 
 ## Solution Code
 
-[Binary Tree](./binary-tree.js)  
+[Binary Tree](./binary-tree.js)
 [Binary Search Tree](./binary-search-tree.js)
 
 ## Test Suites
