@@ -165,4 +165,14 @@ class Queue
 
 ## Code
 
-[stack-and-queue.js](./stack-and-queue.js)
+[Stack](./classes/stack.js)\
+[Queue](./classes/queue.js)\
+[Pseudo Queue](./classes/pseudoQueue.js)\
+[Stack / Queue Animal Shelter](./classes/animal-shelter.js)
+
+## Test Suites
+
+[Stack Test Suite](./__tests__/stacks.test.js)\
+[Queue Test Suite](./__tests__/queue.test.js)\
+[Pseudo Queue Test Suite](./__tests__/pseudoQueue.test.js)\
+[Animal Shelter Test Suite](./__tests__/animal-shelter.test.js)
