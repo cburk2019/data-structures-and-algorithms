@@ -81,9 +81,11 @@ Create a binary search tree subclass with add and contains methods that add new 
 [Binary Tree](./binary-tree.js)
 [Binary Search Tree](./binary-search-tree.js)
 [Breadth First](./breadth-first.js)
+[FizzBuzz](./fizz-buzz.js)
 
 ## Test Suites
 
 [Binary Tree Test Suite](./__tests__/binary-tree.test.js)  
 [Binary Search Tree Test Suite](./__tests__/binary-search-tree.test.js)
 [Breadth First Test Suite](./__test__/breadth-first.test.js)
+[FizzBuzz Test Suite](./__tests__/fizz-buzz.test.js)
