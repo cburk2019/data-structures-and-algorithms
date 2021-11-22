@@ -36,6 +36,11 @@ Output: none
 Input: `target value, new value`\
 Output: none
 
+### Kth From End Method**
+
+Input: `kth value`\
+Output: `node value at _kth_ from end position`
+
 ## Algorithm
 
 ### Insert Method
@@ -88,6 +93,14 @@ Output: none
 - set the current next to reference the newly created node
 - set the new node's next to reference the saved reference to the rest of the linked list
 - set current to equal current.next
+
+### Kth From End Method
+
+- set current to equal head
+- declare a variable to count the length of the linked list
+- declare an empty array
+- traverse through linked list increasing the count variable with each loop until node.next === null; and pushing the values into an array
+- once we know length, return `array[(length - 1 ) - K];`
 
 ## Pseudocode
 
