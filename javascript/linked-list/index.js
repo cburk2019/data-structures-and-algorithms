@@ -145,6 +145,31 @@ class LinkedList {
     }
   }
 
+  kthFromEnd(kValue) {
+    try {
+      if (kValue >= 0) {
+        let current = this.head;
+        let linkedListLengthCounter = 0;
+        let nodeValueArray = [];
+        while (current) {
+          linkedListLengthCounter++;
+          nodeValueArray.push(current.value);
+          current = current.next;
+        }
+        if ((linkedListLengthCounter - kValue) > 0) {
+          let arrayLastIndex = linkedListLengthCounter - 1;
+          return nodeValueArray[(arrayLastIndex - kValue)];
+        } else {
+          return (`${kValue} is greater than length of linked list`);
+        }
+      } else {
+        return (`Please choose a positive number to input`);
+      }
+    } catch (error) {
+      console.log('unable to find kth value', error);
+    }
+  }
+
 }
 
 module.exports = {
