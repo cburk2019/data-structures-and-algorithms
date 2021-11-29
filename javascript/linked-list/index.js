@@ -170,6 +170,30 @@ class LinkedList {
     }
   }
 
+  zipLists(listOne, listTwo) {
+    let listOneCurrent = listOne.head;
+    let listTwoCurrent = listTwo.head;
+    let listOneNext;
+    let listTwoNext;
+
+    while (listOneCurrent && listTwoCurrent) {
+      if (listOneCurrent.next === null) {
+        listOneCurrent.next = listTwoCurrent;
+        break;
+      } else {
+        listOneNext = listOneCurrent.next;
+        listTwoNext = listTwoCurrent.next;
+
+        listTwoCurrent.next = listOneNext;
+        listOneCurrent.next = listTwoCurrent;
+
+        listOneCurrent = listOneNext;
+        listTwoCurrent = listTwoNext;
+      }
+    }
+    return listOne;
+  }
+
 }
 
 module.exports = {
