@@ -187,4 +187,40 @@ describe('Testing Linked List', () => {
     expect(list.kthFromEnd(2)).toBe(2);
   });
 
+  it('Should return a linked lists, zipped', () => {
+
+    const list1 = new LinkedList();
+    list1.head = new Node(1);
+    list1.head.next = new Node(3);
+    list1.head.next.next = new Node(5);
+    list1.head.next.next.next = new Node(7);
+
+    const list2 = new LinkedList();
+    list2.head = new Node(2);
+    list2.head.next = new Node(4);
+    list2.head.next.next = new Node(6);
+    list2.head.next.next.next = new Node(8);
+
+    let zipLL = list1.zipLists(list1, list2);
+
+    expect(list1.toString(zipLL)).toBe(`{1} -> {2} -> {3} -> {4} -> {5} -> {6} -> {7} -> {8} -> NULL`);
+  });
+
+  it('Should return a zipped linked list when the lists are different lengths', () => {
+
+    const list1 = new LinkedList();
+    list1.head = new Node(1);
+    list1.head.next = new Node(3);
+
+    const list2 = new LinkedList();
+    list2.head = new Node(2);
+    list2.head.next = new Node(4);
+    list2.head.next.next = new Node(6);
+    list2.head.next.next.next = new Node(8);
+
+    let zipLL = list1.zipLists(list1, list2);
+
+    expect(list1.toString(zipLL)).toBe(`{1} -> {2} -> {3} -> {4} -> {6} -> {8} -> NULL`);
+  });
+
 });
