@@ -56,14 +56,14 @@ describe('Testing Binary Search Tree', () => {
 
   it('Can return a collection from a post-order traversal', () => {
     const tree = new BinarySearchTree();
-    tree.root = new Node(23);
+    tree.root = new Node(24);
     tree.root.left = new Node(8);
     tree.root.right = new Node(42);
     tree.root.left.left = new Node(4);
     tree.root.left.right = new Node(16);
     tree.root.right.left = new Node(27);
 
-    expect(tree.doPostOrder()).toStrictEqual([4, 16, 8, 27, 42, 23]);
+    expect(tree.doPostOrder()).toStrictEqual([4, 16, 8, 27, 42, 24]);
   });
 
   it('Can add a new node in the correct location in the binary search tree', () => {
