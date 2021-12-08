@@ -2,7 +2,7 @@
 
 ## DSA Implementation
 
-_[Graph Code - index.js](./index.js)_
+_[Graph Code - index.js](./graph.js)_\
 _[Graph Test Suite](./__tests__/graphs.test.js)_
 
 ## Feature Tasks
@@ -31,3 +31,18 @@ _[Graph Test Suite](./__tests__/graphs.test.js)_
 - size
   - Arguments: none
   - Returns the total number of nodes in the graph
+
+## Structure and Testing
+
+Utilize the Single-responsibility principle: any methods you write should be clean, reusable, abstract component parts to the whole challenge. You will be given feedback and marked down if you attempt to define a large, complex algorithm in one function definition.
+
+Write tests to prove the following functionality:
+
+1. Node can be successfully added to the graph
+2. An edge can be successfully added to the graph
+3. A collection of all nodes can be properly retrieved from the graph
+4. All appropriate neighbors can be retrieved from the graph
+5. Neighbors are returned with the weight between nodes included
+6. The proper size is returned, representing the number of nodes in the graph
+7. A graph with only one node and edge can be properly returned
+8. An empty graph properly returns null
