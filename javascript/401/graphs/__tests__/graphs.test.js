@@ -1,5 +1,6 @@
 'use strict';
 
+const { it } = require('eslint/lib/rule-tester/rule-tester');
 const Graph = require('../graph.js');
 
 describe('Tests the Graph data structure implementation', () => {
@@ -30,7 +31,7 @@ describe('Tests the Graph data structure implementation', () => {
     graph.addVertex('B');
     graph.addVertex('C');
 
-    let vertex = graph.getVertexes();
+    let vertex = graph.getVertices();
     //breadth first won't work if some vertexes are not connected/don't have edges
 
     expect(vertex).toBeTruthy();
@@ -98,7 +99,55 @@ describe('Tests the Graph data structure implementation', () => {
 
   it('Can properly return null given an empty graph', () => {
     let graph = new Graph();
-    expect(graph.getVertexes()).toBe(graph.getVertexes());
+    expect(graph.getVertices()).toBe(graph.getVertices());
+  });
+
+  it('If all vertices are connected, breadthFirst will return the full set of vertices in the map with no repeats', () => {
+    let graph = new Graph();
+    let A = graph.addVertex(1);
+    let B = graph.addVertex(2);
+    let C = graph.addVertex(3);
+    let D = graph.addVertex(4);
+    let E = graph.addVertex(5);
+    let F = graph.addVertex(6);
+    graph.addDirectedEdge(A, B);
+    graph.addDirectedEdge(A, C);
+    graph.addDirectedEdge(A, D);
+    graph.addDirectedEdge(A, E);
+    graph.addDirectedEdge(A, F);
+    const breadthFirstSet = graph.breadthFirst(A);
+    expect(graph.vertices).toStrictEqual(breadthFirstSet);
+  });
+
+  it('If no vertices are connected to the vertex argument, breadthFirst will return a set with just the one vertex', () => {
+    let graph = new Graph();
+    let A = graph.addVertex(1);
+    graph.addVertex(2);
+    graph.addVertex(3);
+    graph.addVertex(4);
+    graph.addVertex(5);
+    graph.addVertex(6);
+    const breadthFirstSet = graph.breadthFirst(A);
+    expect(breadthFirstSet.size).toBe(1);
+  });
+
+  it('Only the connected vertices will be returned in the breadthFirst set', () => {
+    let graph = new Graph();
+    let A = graph.addVertex(1);
+    let B = graph.addVertex(2);
+    graph.addVertex(3);
+    let D = graph.addVertex(4);
+    let E = graph.addVertex(5);
+    let F = graph.addVertex(6);
+    graph.addDirectedEdge(A, B);
+    graph.addDirectedEdge(A, D);
+    graph.addDirectedEdge(A, F);
+    graph.addDirectedEdge(D, E);
+    graph.addDirectedEdge(D, F);
+    graph.addDirectedEdge(F, B);
+    graph.addDirectedEdge(F, A);
+    const breadthFirstSet = graph.breadthFirst(A);
+    expect(breadthFirstSet.size).toBe(5);
   });
 
 });
