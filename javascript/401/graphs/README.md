@@ -5,6 +5,11 @@
 _[Graph Code - index.js](./graph.js)_\
 _[Graph Test Suite](./__tests__/graphs.test.js)_
 
+## Business Trip Function
+
+_[Business Trip - businessTrip.js](./businessTrip.js)_
+_[Business Trip Test Suite](./__tests__/businessTrip.test.js)_
+
 ## Feature Tasks
 
 - add node
@@ -46,3 +51,9 @@ Write tests to prove the following functionality:
 6. The proper size is returned, representing the number of nodes in the graph
 7. A graph with only one node and edge can be properly returned
 8. An empty graph properly returns null
+
+Write tests asserting the following business-trip functionality
+
+1. When a trip is valid, the function returns true with a cost for the trip.
+2. When a trip doesn't connect, the function returns false with a message for unconnected trips
+3. When a city isn't in the graph, an error will be thrown
