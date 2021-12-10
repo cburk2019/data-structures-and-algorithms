@@ -1,7 +1,7 @@
 'use strict';
 
-const Vertex = require('./vertex.js');
-const Edge = require('./edge.js');
+const Vertex = require('./Vertex.js');
+const Edge = require('./Edge.js');
 
 class Graph {
   // add method should specify direct or undirected
@@ -88,29 +88,29 @@ class Graph {
 
 }
 
-let graph = new Graph();
+// let graph = new Graph();
 
-let A = graph.addVertex('A');
-let B = graph.addVertex('B');
-let C = graph.addVertex('C');
-let D = graph.addVertex('D');
-let E = graph.addVertex('E');
-let F = graph.addVertex('F');
-let G = graph.addVertex('G');
-let H = graph.addVertex('H');
+// let A = graph.addVertex('A');
+// let B = graph.addVertex('B');
+// let C = graph.addVertex('C');
+// let D = graph.addVertex('D');
+// let E = graph.addVertex('E');
+// let F = graph.addVertex('F');
+// let G = graph.addVertex('G');
+// let H = graph.addVertex('H');
 
-graph.addDirectedEdge(A, D);
-graph.addDirectedEdge(A, C);
-graph.addDirectedEdge(A, B);
-graph.addDirectedEdge(D, F);
-graph.addDirectedEdge(B, C);
-graph.addDirectedEdge(B, E);
-graph.addDirectedEdge(C, F);
-graph.addDirectedEdge(C, E);
-graph.addDirectedEdge(C, B);
-graph.addDirectedEdge(F, G);
-graph.addDirectedEdge(G, H);
-graph.addDirectedEdge(H, F);
+// graph.addDirectedEdge(A, D);
+// graph.addDirectedEdge(A, C);
+// graph.addDirectedEdge(A, B);
+// graph.addDirectedEdge(D, F);
+// graph.addDirectedEdge(B, C);
+// graph.addDirectedEdge(B, E);
+// graph.addDirectedEdge(C, F);
+// graph.addDirectedEdge(C, E);
+// graph.addDirectedEdge(C, B);
+// graph.addDirectedEdge(F, G);
+// graph.addDirectedEdge(G, H);
+// graph.addDirectedEdge(H, F);
 
 // console.log('GET GRAPH: GRAPH: ', graph);
 // console.log('GET BREADTHFIRST: A: ', graph.breadthFirst(A));
