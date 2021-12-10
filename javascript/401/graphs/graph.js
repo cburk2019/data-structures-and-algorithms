@@ -115,7 +115,7 @@ class Graph {
 // console.log('GET GRAPH: GRAPH: ', graph);
 // console.log('GET BREADTHFIRST: A: ', graph.breadthFirst(A));
 // console.log('GET NEIGHBORS: EDGES: ', graph.edges);
-// console.log('GET VERTEXES: VISITEDVERTEXES: ', graph.getVertices());
-// console.log('GET SIZE: VERTICES: ', graph.getSize());
+console.log('GET VERTEXES: VISITEDVERTEXES: ', graph.getVertices());
+console.log('GET SIZE: VERTICES: ', graph.getSize());
 
 module.exports = Graph;

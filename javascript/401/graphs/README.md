@@ -5,6 +5,11 @@
 _[Graph Code - index.js](./Graph.js)_\
 _[Graph Test Suite](./__tests__/graphs.test.js)_
 
+## Business Trip Function
+
+_[Business Trip - businessTrip.js](./businessTrip.js)_
+_[Business Trip Test Suite](./__tests__/businessTrip.test.js)_
+
 ## Feature Tasks
 
 - add node
@@ -60,6 +65,12 @@ Write tests to prove the following functionality:
     - it('Can properly handle returning a graph that only has one vertex and one edge'
 
 8. An empty graph properly returns null
+
+Write tests asserting the following business-trip functionality
+
+1. When a trip is valid, the function returns true with a cost for the trip.
+2. When a trip doesn't connect, the function returns false with a message for unconnected trips
+3. When a city isn't in the graph, an error will be thrown
     - it('Can properly return null given an empty graph')
 
 9. If all vertices are connected, breadthFirst will return the full set of vertices in the map with no repeats
