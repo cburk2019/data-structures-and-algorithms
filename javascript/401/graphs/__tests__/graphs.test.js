@@ -30,7 +30,7 @@ describe('Tests the Graph data structure implementation', () => {
     graph.addVertex('B');
     graph.addVertex('C');
 
-    let vertex = graph.getVertexes();
+    let vertex = graph.getVertices();
     //breadth first won't work if some vertexes are not connected/don't have edges
 
     expect(vertex).toBeTruthy();
@@ -98,7 +98,7 @@ describe('Tests the Graph data structure implementation', () => {
 
   it('Can properly return null given an empty graph', () => {
     let graph = new Graph();
-    expect(graph.getVertexes()).toBe(graph.getVertexes());
+    expect(graph.getVertices()).toBe(graph.getVertices());
   });
 
 });

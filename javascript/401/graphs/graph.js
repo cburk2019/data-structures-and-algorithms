@@ -40,7 +40,7 @@ class Graph {
     neighbors.push(newEdge);
   }
 
-  getVertexes() {
+  getVertices() {
     return this.vertices;
   }
 
@@ -115,7 +115,7 @@ graph.addDirectedEdge(H, F);
 // console.log('GET GRAPH: GRAPH: ', graph);
 // console.log('GET BREADTHFIRST: A: ', graph.breadthFirst(A));
 // console.log('GET NEIGHBORS: EDGES: ', graph.edges);
-console.log('GET VERTEXES: VISITEDVERTEXES: ', graph.getVertexes());
+console.log('GET VERTEXES: VISITEDVERTEXES: ', graph.getVertices());
 console.log('GET SIZE: VERTICES: ', graph.getSize());
 
 module.exports = Graph;
