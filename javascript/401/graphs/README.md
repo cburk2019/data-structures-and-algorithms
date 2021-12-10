@@ -12,28 +12,31 @@ _[Business Trip Test Suite](./__tests__/businessTrip.test.js)_
 
 ## Feature Tasks
 
-- add node
+- addVertex(value)
   - Arguments: value
   - Returns: The added node
+
   - Add a node to the graph
 
-- add edge
+- addDirectedEdge(startVertex, endVertex, weight)
   - Arguments: 2 nodes to be connected by the edge, weight (optional)
   - Returns: nothing
+
   - Adds a new edge between two nodes in the graph
   - If specified, assign a weight to the edge
+
   - Both nodes should already be in the Graph
 
-- get nodes
+- getVertices()
   - Arguments: none
-  - Returns all of the nodes in the graph as a collection (set, list, or similar)
+  - Returns: all of the nodes in the graph as a collection (set, list, or similar)
 
-- get neighbors
+- getNeighbors()
   - Arguments: node
   - Returns a collection of edges connected to the given node
     - Include the weight of the connection in the returned collection
 
-- size
+- getSize()
   - Arguments: none
   - Returns the total number of nodes in the graph
 
