@@ -69,13 +69,6 @@ Write tests to prove the following functionality:
 
 8. An empty graph properly returns null
 
-Write tests asserting the following business-trip functionality
-
-1. When a trip is valid, the function returns true with a cost for the trip.
-2. When a trip doesn't connect, the function returns false with a message for unconnected trips
-3. When a city isn't in the graph, an error will be thrown
-    - it('Can properly return null given an empty graph')
-
 9. If all vertices are connected, breadthFirst will return the full set of vertices in the map with no repeats
     - it('If all vertices are connected, breadthFirst will return the full set of vertices in the map with no repeats')
 
@@ -84,6 +77,13 @@ Write tests asserting the following business-trip functionality
 
 11. Only the connected vertices will be returned in the breadthFirst set
     - it('Only the connected vertices will be returned in the breadthFirst set')
+
+Write tests asserting the following business-trip functionality
+
+1. When a trip is valid, the function returns true with a cost for the trip.
+2. When a trip doesn't connect, the function returns false with a message for unconnected trips
+3. When a city isn't in the graph, an error will be thrown
+    - it('Can properly return null given an empty graph')
 
 ## Methods
 
