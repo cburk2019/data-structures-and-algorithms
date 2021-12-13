@@ -1,7 +1,7 @@
 'use strict';
 
-const Vertex = require('./Vertex.js');
-const Edge = require('./Edge.js');
+const Vertex = require('./vertex.js');
+const Edge = require('./edge.js');
 
 class Graph {
   // add method should specify direct or undirected

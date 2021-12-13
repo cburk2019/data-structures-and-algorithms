@@ -1,6 +1,5 @@
 'use strict';
 
-const { it } = require('eslint/lib/rule-tester/rule-tester');
 const Graph = require('../graph.js');
 
 describe('Tests the Graph data structure implementation', () => {
