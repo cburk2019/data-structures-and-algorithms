@@ -11,10 +11,6 @@ class Graph {
     this.numVertex = 0;
   }
 
-  getSize() {
-    return this.numVertex++;
-  }
-
   // adding a vertex to our edges
   addVertex(value) {
     let newVertex = new Vertex(value);
@@ -50,6 +46,10 @@ class Graph {
       return null;
     }
     return [...this.edges.get(vertex)]; // I do not want to mutate the array, just want the values
+  }
+
+  getSize() {
+    return this.numVertex++;
   }
 
   // traversal using a queue
