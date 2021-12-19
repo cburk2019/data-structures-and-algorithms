@@ -1,4 +1,10 @@
-# Data Structures and Algorithms for Code Fellows 401
+# 401 Code Challenges - Data Structures and Algorithms
+
+These code challenges are structured differently as they tackle real world problems rather than, relatively, simpler problems faced in the _[301 challenges](../README.md)_.
+
+Below are links to each challenge presented with some being core concept implementations. Please let me know if there are any changes you would make, suggestions for more efficient solutions, or clarification on anything I might be doing incorrectly.
+
+## Table of Contents
 
 - _[Array Binary Search](./array-bonary-search/README.md)_
 - _[Array Insert Shift](./array-insert-shift/README.md)_
