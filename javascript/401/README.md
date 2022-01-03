@@ -16,6 +16,7 @@ Below are links to each challenge presented with some being core concept impleme
 - _[Insert Sort](./insert-sort/README.md)_
 - _[Merge Sort](./merge-sort/README.md)_
 - _[Mock Interviews](./mock-interviews/README.md)_
+- _[Quick Sort](./quick-sort/README.md)_
 - _[Singly Linked List](./singly-linked-list/README.md)_
 - _[Stacks and Queues](./stacks-and-queues/README.md)_
 - _[Tree Intersection](./tree-intersection/README.md)_
