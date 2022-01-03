@@ -10,11 +10,11 @@ Insertion Sort is a function that takes in an unsorted array and sorts it in asc
 
 ## Input / Output
 
-_example input array_
+### _example input array_
 
 `[ 8, 4, 23, 42, 16, 15 ]`
 
-_example output array_
+### _example output array_
 
 `[ 4, 8, 15, 16, 23, 42 ]`
 
