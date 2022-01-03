@@ -6,9 +6,10 @@
 
 - _[Linked Lists](./401/linked-list/README.md)_
 - _[Stacks & Queues](./401/stacks-and-queues/README.md)_
-- _[Trees](./401/trees/README.md)_
+- _[Binary Trees & Binary Search Trees](./401/trees/README.md)_
 - _[Hash Table](./401/hash-table/README.md)_
 - _[Hash Map](./401/hash-map/README.md)_
+- _[Graphs](./401/graphs/README.md)_
 
 ### Folder and Challenge Setup
 
