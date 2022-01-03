@@ -46,7 +46,7 @@ Create a binary search tree subclass with add and contains methods that add new 
 `Input`: none\
 `Output`: array of values, ordered appropriately (post-order)
 
-### findMax Traversdal Method
+### findMax Traversal Method
 
 `Input`: binary tree root\
 `Output`: none
