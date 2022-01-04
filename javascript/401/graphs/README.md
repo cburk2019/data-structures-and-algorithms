@@ -7,18 +7,18 @@ _[Graph Test Suite](./__tests__/graphs.test.js)_
 
 ## Business Trip Function
 
-_[Business Trip - businessTrip.js](./businessTrip.js)_
-_[Business Trip Test Suite](./__tests__/businessTrip.test.js)_
+_[Business Trip - businessTrip.js](./business-trip/businessTrip.js)_
+_[Business Trip Test Suite](./business-trip/__tests__/businessTrip.test.js)_
 
 ## Feature Tasks
 
-- addVertex(value)
+- `addVertex`(value)
   - Arguments: value
   - Returns: The added node
 
   - Add a node to the graph
 
-- addDirectedEdge(startVertex, endVertex, weight)
+- `addDirectedEdge`(startVertex, endVertex, weight)
   - Arguments: 2 nodes to be connected by the edge, weight (optional)
   - Returns: nothing
 
@@ -27,16 +27,16 @@ _[Business Trip Test Suite](./__tests__/businessTrip.test.js)_
 
   - Both nodes should already be in the Graph
 
-- getVertices()
+- `getVertices`()
   - Arguments: none
   - Returns: all of the nodes in the graph as a collection (set, list, or similar)
 
-- getNeighbors()
+- `getNeighbors`()
   - Arguments: node
   - Returns a collection of edges connected to the given node
     - Include the weight of the connection in the returned collection
 
-- getSize()
+- `getSize`()
   - Arguments: none
   - Returns the total number of nodes in the graph
 
