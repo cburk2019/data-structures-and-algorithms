@@ -1,6 +1,5 @@
 'use strict';
 
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -30,7 +29,7 @@ class LinkedList {
       // recursive case
       if (current) {
         console.log(current);
-        traverseLLRecursive(current.next);
+        this.traverseLLRecursive(current.next);
       } return; // base case
     } catch (error) {
       throw `Sorry partner, unable to recursively traverse LinkedList: ${error}`;
@@ -170,6 +169,7 @@ class LinkedList {
     }
   }
 
+  // merge two linked lists
   zipLists(listOne, listTwo) {
     let listOneCurrent = listOne.head;
     let listTwoCurrent = listTwo.head;

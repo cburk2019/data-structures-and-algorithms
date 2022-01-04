@@ -121,7 +121,7 @@ class Stack
   pop
     let temp = this.top
     this.top = temp.next
-    return remp.value
+    return temp.value
 
   peek
     if this.top is empty

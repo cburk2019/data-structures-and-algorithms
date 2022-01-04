@@ -1,9 +1,10 @@
 'use strict';
 
-const reverse = require('../reverse-ll.js');
+// Require our linked list implementation
+const LinkedList = require('../reverse-ll');
 
-describe('Reverse', () => {
+describe('Linked List', () => {
   it('works', () => {
-    expect(reverse()).toBeTruthy();
-  })
-})
+    expect(true).toBeTruthy();
+  });
+});
