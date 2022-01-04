@@ -223,4 +223,22 @@ describe('Testing Linked List', () => {
     expect(list1.toString(zipLL)).toBe(`{1} -> {2} -> {3} -> {4} -> {6} -> {8} -> NULL`);
   });
 
+  it('Should return a linked list, zipped, from two separate linked lists', () => {
+
+    const list1 = new LinkedList();
+    list1.head = new Node(1);
+    list1.head.next = new Node(2);
+    list1.head.next.next = new Node(3);
+
+    const list2 = new LinkedList();
+    list2.head = new Node('a');
+    list2.head.next = new Node('b');
+    list2.head.next.next = new Node('c');
+
+    let zipLL = list1.zipLists(list1, list2);
+    console.log(zipLL);
+
+    expect(list1.toString(zipLL)).toBe(`{1} -> {a} -> {2} -> {b} -> {3} -> {c} -> NULL`);
+  });
+
 });
