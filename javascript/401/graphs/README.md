@@ -40,6 +40,14 @@ _[Business Trip Test Suite](./business-trip/__tests__/businessTrip.test.js)_
   - Arguments: none
   - Returns the total number of nodes in the graph
 
+- `Breadth First Traversal`()
+  - Arguments: starting node
+  - Returns a collection of nodes in the order they were visited
+
+- `Depth First Traversal`()
+  - Arguments: node
+  - Returns a collection of nodes in their pre-order depth-first traversal order
+
 ## Structure and Testing
 
 Utilize the Single-responsibility principle: any methods you write should be clean, reusable, abstract component parts to the whole challenge. You will be given feedback and marked down if you attempt to define a large, complex algorithm in one function definition.

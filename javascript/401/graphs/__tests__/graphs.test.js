@@ -6,7 +6,9 @@ describe('Tests the Graph data structure implementation', () => {
 
   it('Can successfully add a vertex to the graph', () => {
     let graph = new Graph();
+
     let vertex = graph.addVertex('1');
+
     graph.addVertex('2');
     graph.addVertex('3');
 
@@ -15,7 +17,9 @@ describe('Tests the Graph data structure implementation', () => {
 
   it('Can successfully add an edge can to the graph', () => {
     let graph = new Graph();
+
     let startVertex = graph.addVertex('1');
+
     let endVertex = graph.addVertex('2');
     graph.addVertex('3');
 
@@ -26,6 +30,7 @@ describe('Tests the Graph data structure implementation', () => {
 
   it('Can successfully return a collection of all vertexes in the graph', () => {
     let graph = new Graph;
+
     graph.addVertex('A');
     graph.addVertex('B');
     graph.addVertex('C');
@@ -59,6 +64,7 @@ describe('Tests the Graph data structure implementation', () => {
 
   it('Can return the neighbors of a given vertex that include the weight between that vertex and each neighbor', () => {
     let graph = new Graph;
+
     let A = graph.addVertex('A');
     let B = graph.addVertex('B');
     let C = graph.addVertex('C');
@@ -89,6 +95,7 @@ describe('Tests the Graph data structure implementation', () => {
 
   it('Can properly handle returning a graph that only has one vertex and one edge', () => {
     let graph = new Graph();
+
     graph.addVertex(1);
 
     expect(graph.vertices.size).toBe(1);
@@ -98,46 +105,59 @@ describe('Tests the Graph data structure implementation', () => {
 
   it('Can properly return null given an empty graph', () => {
     let graph = new Graph();
+
     expect(graph.getVertices()).toBe(graph.getVertices());
   });
 
   it('If all vertices are connected, breadthFirst will return the full set of vertices in the map with no repeats', () => {
     let graph = new Graph();
+
     let A = graph.addVertex(1);
     let B = graph.addVertex(2);
     let C = graph.addVertex(3);
     let D = graph.addVertex(4);
     let E = graph.addVertex(5);
     let F = graph.addVertex(6);
+
     graph.addDirectedEdge(A, B);
     graph.addDirectedEdge(A, C);
     graph.addDirectedEdge(A, D);
     graph.addDirectedEdge(A, E);
     graph.addDirectedEdge(A, F);
+
     const breadthFirstSet = graph.breadthFirst(A);
+
     expect(graph.vertices).toStrictEqual(breadthFirstSet);
   });
 
   it('If no vertices are connected to the vertex argument, breadthFirst will return a set with just the one vertex', () => {
     let graph = new Graph();
+
     let A = graph.addVertex(1);
+
     graph.addVertex(2);
     graph.addVertex(3);
     graph.addVertex(4);
     graph.addVertex(5);
     graph.addVertex(6);
+
     const breadthFirstSet = graph.breadthFirst(A);
+
     expect(breadthFirstSet.size).toBe(1);
   });
 
   it('Only the connected vertices will be returned in the breadthFirst set', () => {
     let graph = new Graph();
+
     let A = graph.addVertex(1);
     let B = graph.addVertex(2);
+
     graph.addVertex(3);
+
     let D = graph.addVertex(4);
     let E = graph.addVertex(5);
     let F = graph.addVertex(6);
+
     graph.addDirectedEdge(A, B);
     graph.addDirectedEdge(A, D);
     graph.addDirectedEdge(A, F);
@@ -145,8 +165,37 @@ describe('Tests the Graph data structure implementation', () => {
     graph.addDirectedEdge(D, F);
     graph.addDirectedEdge(F, B);
     graph.addDirectedEdge(F, A);
+
     const breadthFirstSet = graph.breadthFirst(A);
+
     expect(breadthFirstSet.size).toBe(5);
   });
 
+  it('Can traverse graph depth first in pre-order', () => {
+    let graph = new Graph();
+
+    let A = graph.addVertex('A');
+    let B = graph.addVertex('B');
+    let C = graph.addVertex('C');
+    let G = graph.addVertex('G');
+    let D = graph.addVertex('D');
+    let E = graph.addVertex('E');
+    let F = graph.addVertex('F');
+    let H = graph.addVertex('H');
+
+    graph.addDirectedEdge(A, B);
+    graph.addDirectedEdge(B, A);
+    graph.addDirectedEdge(A, D);
+    graph.addDirectedEdge(D, A);
+    graph.addDirectedEdge(B, C);
+    graph.addDirectedEdge(C, B);
+    graph.addDirectedEdge(C, G);
+    graph.addDirectedEdge(B, D);
+    graph.addDirectedEdge(D, B);
+    graph.addDirectedEdge(D, E);
+    graph.addDirectedEdge(D, H);
+    graph.addDirectedEdge(D, F);
+
+    expect(graph.depthTraversal(A)).toEqual(graph.vertices);
+  });
 });
