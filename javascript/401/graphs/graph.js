@@ -86,36 +86,24 @@ class Graph {
     return visitedVertex;
   }
 
+  // depth traversal method
+  depthTraversal(startNode) {
+    let visited = new Set();
+    return this.depthTraversalHelper(startNode, visited);
+  }
+
+  depthTraversalHelper(vertex, visited) {
+    visited.add(vertex);
+    let neighbors = this.getNeighbors(vertex);
+    for (let edge of neighbors) {
+      let neighbor = edge.vertex;
+      if (!visited.has(neighbor)) {
+        this.depthTraversalHelper(neighbor, visited);
+      }
+    }
+    return visited;
+  }
+
 }
-
-// let graph = new Graph();
-
-// let A = graph.addVertex('A');
-// let B = graph.addVertex('B');
-// let C = graph.addVertex('C');
-// let D = graph.addVertex('D');
-// let E = graph.addVertex('E');
-// let F = graph.addVertex('F');
-// let G = graph.addVertex('G');
-// let H = graph.addVertex('H');
-
-// graph.addDirectedEdge(A, D);
-// graph.addDirectedEdge(A, C);
-// graph.addDirectedEdge(A, B);
-// graph.addDirectedEdge(D, F);
-// graph.addDirectedEdge(B, C);
-// graph.addDirectedEdge(B, E);
-// graph.addDirectedEdge(C, F);
-// graph.addDirectedEdge(C, E);
-// graph.addDirectedEdge(C, B);
-// graph.addDirectedEdge(F, G);
-// graph.addDirectedEdge(G, H);
-// graph.addDirectedEdge(H, F);
-
-// console.log('GET GRAPH: GRAPH: ', graph);
-// console.log('GET BREADTHFIRST: A: ', graph.breadthFirst(A));
-// console.log('GET NEIGHBORS: EDGES: ', graph.edges);
-// console.log('GET VERTEXES: VISITEDVERTEXES: ', graph.getVertices());
-// console.log('GET SIZE: VERTICES: ', graph.getSize());
 
 module.exports = Graph;
