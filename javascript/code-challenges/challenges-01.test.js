@@ -9,11 +9,17 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
-  const newNumArray = [];
-  arr.forEach(num => {
-    newNumArray.push(num + 1);
+  // const newNumArray = [];
+  // arr.forEach(num => {
+  //   newNumArray.push(num + 1);
+  // });
+  // return newNumArray;
+
+  const newArray = [];
+  arr.forEach(newNumber => {
+    newArray.push(newNumber + 1);
   });
-  return newNumArray;
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -25,11 +31,17 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 ------------------------------------------------------------------------------------------------ */
 
 const addExclamation = (arr) => {
-  const newStringArray = [];
-  arr.forEach(string => {
-    newStringArray.push(string + '!');
+  // const newStringArray = [];
+  // arr.forEach(string => {
+  //   newStringArray.push(string + '!');
+  // });
+  // return newStringArray;
+
+  let newArray = [];
+  arr.forEach(withExclamation => {
+    newArray.push(withExclamation + '!');
   });
-  return newStringArray;
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -93,7 +105,7 @@ const addValues = (arr, value) => {
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  for (let i = 0; i < times; i++){
+  for (let i = 0; i < times; i++) {
     callback(arr, num);
   }
   return arr;
@@ -103,7 +115,7 @@ const addNumbers = (num, arr, times, callback) => {
 
 CHALLENGE 6
 
-Write a function named createList that takes in an array of the current store intentory.
+Write a function named createList that takes in an array of the current store inventory.
 
 The inventory is formatted like this:
 [
@@ -119,7 +131,7 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   const finalList = [];
-  // check for truthyness
+  // check for truthiness
   // if true, will push
   // if not true, will not add, move on to next object in array
   availableItems.forEach(item => {
@@ -144,9 +156,9 @@ Iterate over the array using forEach to determine the output based on several ru
 Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
-const fizzbuzz = (arr) => {
-  // Solution code here...
-};
+// const fizzbuzz = (arr) => {
+//   // Solution code here...
+// };
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
